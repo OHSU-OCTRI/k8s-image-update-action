@@ -1,0 +1,22 @@
+---
+name: Build and test
+on:
+  push:
+    branches-ignore:
+      - 'main'
+      - 'dependabot/**'
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch:
+
+jobs:
+  run-node-tests:
+    name: Run Node.js tests
+    uses: OHSU-OCTRI/shared-workflows/.github/workflows/node-test.yaml@main
+    with:
+      node_version: '24.x'
+      run_type_checks: true
+    # Does not inherit secrets due to security changes in automated workflows

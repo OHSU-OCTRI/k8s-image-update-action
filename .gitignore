@@ -1,0 +1,12 @@
+.DS_Store
+
+# Visual Studio Code
+.vscode/launch.json
+.vscode/tasks.json
+
+# Node
+node_modules/
+bundle-stats.json
+
+.env
+docker_data/

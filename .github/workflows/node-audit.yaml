@@ -1,0 +1,15 @@
+---
+name: Update Node.js dependencies
+on:
+  schedule:
+    - cron: "0 4 * * 4"
+      timezone: "America/Los_Angeles"
+  workflow_dispatch:
+
+jobs:
+  audit-node-packages:
+    name: 'Run `npm audit fix`'
+    uses: OHSU-OCTRI/shared-workflows/.github/workflows/node-audit.yaml@main
+    with:
+      node_version: '24'
+    secrets: inherit

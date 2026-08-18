@@ -1,0 +1,24 @@
+name: 'Update Image Action'
+description: 'Update container image references (tag/digest) in Kubernetes deployment manifests'
+inputs:
+  image-name:
+    description: 'Container image name, e.g. ghcr.io/ohsu-octri/example'
+    required: true
+  image-digest:
+    description: "SHA256 digest of the image, with or without the 'sha256:' prefix"
+    required: true
+  yaml-files:
+    description: 'Kubernetes manifest files to update. Comma or newline separated list of paths.'
+    required: true
+  version-tag:
+    description: 'Optional version tag, e.g. 1.2.3. If omitted, containers are pinned to the digest only.'
+    required: false
+    default: ''
+outputs:
+  new-image:
+    description: 'The fully resolved image reference that was applied'
+  updated-count:
+    description: 'Number of container image references updated'
+runs:
+  using: 'node24'
+  main: 'dist/index.js'
