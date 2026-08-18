@@ -5,7 +5,7 @@ import {
   buildImagePattern,
   updateImagesInNode,
   Counter,
-} from './manifest-util';
+} from './manifest-util.js';
 
 describe('normalizeDigest', () => {
   const validHex = 'a'.repeat(64);

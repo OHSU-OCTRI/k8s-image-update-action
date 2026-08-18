@@ -1,10 +1,11 @@
 import * as core from '@actions/core';
 import * as fs from 'fs';
+import { fileURLToPath } from 'url';
 import { parseAllDocuments, Document, isMap, isSeq } from 'yaml';
 
-import { splitFileList } from './input-util';
-import { normalizeDigest, buildImagePattern, updateImagesInNode } from './manifest-util';
-import type { Counter } from './manifest-util';
+import { splitFileList } from './input-util.js';
+import { normalizeDigest, buildImagePattern, updateImagesInNode } from './manifest-util.js';
+import type { Counter } from './manifest-util.js';
 
 export async function run(): Promise<void> {
   try {
@@ -63,6 +64,6 @@ export async function run(): Promise<void> {
   }
 }
 
-if (require.main === module) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
   run();
 }

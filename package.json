@@ -1,14 +1,15 @@
 {
   "name": "update-deployment-image-action",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "description": "Update container image references in Kubernetes deployment manifests",
   "main": "dist/index.js",
   "scripts": {
     "build": "ncc build src/index.ts -o dist",
     "package": "npm run build",
-    "test": "jest",
-    "test:ci": "jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:ci": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test:types": "tsc --noEmit"
   },
   "dependencies": {
@@ -23,5 +24,8 @@
     "ts-jest": "^29.4.12",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=24.0.0"
   }
 }

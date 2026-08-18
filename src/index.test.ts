@@ -1,13 +1,19 @@
 import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
-import * as core from '@actions/core';
 
-import { run } from './index';
+import { jest } from '@jest/globals';
 
-jest.mock('@actions/core');
+jest.unstable_mockModule('@actions/core', () => ({
+  getInput: jest.fn(),
+  info: jest.fn(),
+  setFailed: jest.fn(),
+  setOutput: jest.fn()
+}));
 
-const mockedCore = core as jest.Mocked<typeof core>;
+const mockedCore = await import('@actions/core');
+const mockedGetInput = mockedCore.getInput as jest.MockedFunction<typeof mockedCore.getInput>;
+const { run } = await import('./index.js');
 
 describe('run', () => {
   let tmpDir: string;
@@ -22,7 +28,7 @@ describe('run', () => {
   });
 
   function setInputs(inputs: Record<string, string>): void {
-    mockedCore.getInput.mockImplementation((name: string) => inputs[name] ?? '');
+    mockedGetInput.mockImplementation((name: string) => inputs[name] ?? '');
   }
 
   function writeManifest(fileName: string, contents: string): string {

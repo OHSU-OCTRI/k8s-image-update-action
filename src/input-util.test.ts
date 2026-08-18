@@ -1,4 +1,4 @@
-import { splitFileList } from './input-util';
+import { splitFileList } from './input-util.js';
 
 describe('splitFileList', () => {
   it('splits comma-separated values', () => {
