@@ -19,3 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dependency Updates
 
 - Bump `@actions/core` from 1.10.1 to 2.0.3
+- Bump `@actions/core` from 2.0.3 to 3.0.1
