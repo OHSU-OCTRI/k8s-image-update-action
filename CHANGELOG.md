@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Convert Jest config to TypeScript
 - Convert package to ESM-only to prepare for upgrade to `@actions/core` 3.0
+- Limit distribution file check to non-Dependabot branches
 
 ### Dependency Updates
 
