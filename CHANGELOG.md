@@ -9,8 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Initial version of the image update action.
+- Initial version of the image update action
 
 ### Changed
 
-- Convert Jest config to TypeScript.
+- Convert Jest config to TypeScript
+
+### Dependency Updates
+
+- Bump `@actions/core` from 1.10.1 to 2.0.3
