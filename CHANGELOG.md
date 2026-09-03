@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix an issue where the action was wrapping long lines, such as Filebeat annotations (CIS-3850)
+
 ## [1.0.0] - 2026-08-18
 
 ### Added

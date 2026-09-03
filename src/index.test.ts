@@ -190,6 +190,38 @@ describe('run', () => {
     );
   });
 
+  it('preserves long annotation values as a single line', async () => {
+    const longAnnotation =
+      "co.elastic.logs/processors.dissect.tokenizer: '%{+@timestamp->} %{log.level} %{process.pid|long} --- [%{process.thread.name}] %{log.logger} : %{}'";
+    const manifestPath = writeManifest(
+      'deployment.yaml',
+      [
+        'metadata:',
+        '  annotations:',
+        `    ${longAnnotation}`,
+        'spec:',
+        '  template:',
+        '    spec:',
+        '      containers:',
+        '        - name: app',
+        '          image: registry.example.com/my-app:v1',
+        '',
+      ].join('\n'),
+    );
+
+    setInputs({
+      'image-name': 'registry.example.com/my-app',
+      'image-digest': 'a'.repeat(64),
+      'version-tag': 'v2',
+      'yaml-files': manifestPath,
+    });
+
+    await run();
+
+    const updated = fs.readFileSync(manifestPath, 'utf8');
+    expect(updated).toContain(longAnnotation);
+  });
+
   it('fails when no yaml files are provided', async () => {
     setInputs({
       'image-name': 'registry.example.com/my-app',
