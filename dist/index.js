@@ -39892,7 +39892,7 @@ async function run() {
                     updateImagesInNode(doc.contents, pattern, newImage, counter);
                 }
             }
-            const output = documents.map((doc) => doc.toString()).join('---\n');
+            const output = documents.map((doc) => doc.toString({ lineWidth: 0 })).join('---\n');
             external_fs_namespaceObject.writeFileSync(filePath, output);
             info(`Processed ${filePath}`);
         }

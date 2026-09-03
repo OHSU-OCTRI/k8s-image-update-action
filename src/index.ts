@@ -44,7 +44,7 @@ export async function run(): Promise<void> {
         }
       }
 
-      const output = documents.map((doc) => doc.toString()).join('---\n');
+      const output = documents.map((doc) => doc.toString({ lineWidth: 0 })).join('---\n');
       fs.writeFileSync(filePath, output);
       core.info(`Processed ${filePath}`);
     }
