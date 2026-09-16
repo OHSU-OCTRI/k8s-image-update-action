@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-09-16
+
 ### Fixed
 
 - Fix an issue where the action was wrapping long lines, such as Filebeat annotations (CIS-3850)
@@ -30,5 +32,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump `@actions/core` from 1.10.1 to 2.0.3
 - Bump `@actions/core` from 2.0.3 to 3.0.1
 
-[unreleased]: https://github.com/OHSU-OCTRI/k8s-image-update-action/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/OHSU-OCTRI/k8s-image-update-action/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/OHSU-OCTRI/k8s-image-update-action/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/OHSU-OCTRI/k8s-image-update-action/compare/cbec35653472b4b9faf9e3b2b95ee1a812c2bf80...v1.0.0
